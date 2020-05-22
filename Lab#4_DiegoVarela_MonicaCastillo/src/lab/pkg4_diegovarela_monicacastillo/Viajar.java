@@ -11,4 +11,4 @@ package lab.pkg4_diegovarela_monicacastillo;
  */
 public interface Viajar {
     
-}
+} // Fin Viajar

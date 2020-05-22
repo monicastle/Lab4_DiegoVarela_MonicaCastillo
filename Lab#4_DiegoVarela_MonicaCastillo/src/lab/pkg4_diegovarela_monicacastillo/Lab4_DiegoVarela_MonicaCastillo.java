@@ -5,6 +5,8 @@
  */
 package lab.pkg4_diegovarela_monicacastillo;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -13,7 +15,7 @@ import java.util.Scanner;
  * @author Monica
  */
 public class Lab4_DiegoVarela_MonicaCastillo {
-
+    
     static Scanner entrada = new Scanner(System.in);
     static ArrayList<String> usernames = new ArrayList();
     static ArrayList<String> contraseñas = new ArrayList();
@@ -24,7 +26,7 @@ public class Lab4_DiegoVarela_MonicaCastillo {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         // TODO code application logic here
         char resp = 's';
         while (resp == 's' || resp == 'S') {
@@ -95,6 +97,7 @@ public class Lab4_DiegoVarela_MonicaCastillo {
                     System.out.print("Ingrese su contraseña: ");
                     String contraseña = entrada.next();
                     contraseñas.add(contraseña);
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
                     System.out.print("Ingrese su fecha de nacimiento :");
                     String fecha = entrada.next();
                     System.out.print("Ingrese su grupo sanguineo :");
@@ -120,7 +123,7 @@ public class Lab4_DiegoVarela_MonicaCastillo {
                     System.out.println("Ingrese su peso: ");
                     double peso = entrada.nextDouble();
                     System.out.println("¡Se ha logrado registrar exitosamente!");
-                    ingenieros.add(new Ingenieros(correo, usuario, contraseña, fecha, nombre, sanguineo, sexo, altura, peso));
+                    ingenieros.add(new Ingenieros(correo, usuario, contraseña, sdf.parse(fecha), nombre, sanguineo, sexo, altura, peso));
                     break;
                 case 2:
                     System.out.print("Ingrese su nombre de uuario: ");
@@ -339,7 +342,7 @@ public class Lab4_DiegoVarela_MonicaCastillo {
                                         case 2:
                                             gasolina3 = "Propelente liquido";
                                             break;
-
+                                        
                                     }
                                     System.out.println("Ingres eel ´lanete de partida:");
                                     String partida3 = entrada.next();
@@ -367,7 +370,7 @@ public class Lab4_DiegoVarela_MonicaCastillo {
                             break;
                         case 4:
                             break;
-
+                        
                     }
                     break;
                 case 3:
