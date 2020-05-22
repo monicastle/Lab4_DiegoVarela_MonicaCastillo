@@ -5,17 +5,12 @@
  */
 package lab.pkg4_diegovarela_monicacastillo;
 
-/**
- *
- * @author Monica
- */
+
 public class Lab4_DiegoVarela_MonicaCastillo {
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+      
     }
     
 }
