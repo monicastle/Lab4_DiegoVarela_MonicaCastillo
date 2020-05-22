@@ -15,7 +15,7 @@ import java.util.Scanner;
  * @author Monica
  */
 public class Lab4_DiegoVarela_MonicaCastillo {
-    
+
     static Scanner entrada = new Scanner(System.in);
     static ArrayList<String> usernames = new ArrayList();
     static ArrayList<String> contraseñas = new ArrayList();
@@ -41,6 +41,7 @@ public class Lab4_DiegoVarela_MonicaCastillo {
                     System.out.println("¡Bienvenido al Sistema de Registro!");
                     System.out.print("Ingrese su nombre: ");
                     String nombre = entrada.nextLine();
+                    entrada.nextLine();
                     System.out.print("Ingrese su correo electronico: ");
                     String correo = entrada.next();
                     System.out.print("Ingrese un nombre de usuario: ");
@@ -97,8 +98,8 @@ public class Lab4_DiegoVarela_MonicaCastillo {
                     System.out.print("Ingrese su contraseña: ");
                     String contraseña = entrada.next();
                     contraseñas.add(contraseña);
-                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-                    System.out.print("Ingrese su fecha de nacimiento :");
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                    System.out.print("Ingrese su fecha de nacimiento (dd/MM/yyyy): ");
                     String fecha = entrada.next();
                     System.out.print("Ingrese su grupo sanguineo :");
                     String sanguineo = entrada.next();
@@ -120,7 +121,7 @@ public class Lab4_DiegoVarela_MonicaCastillo {
                     } // Fin Switch Generos
                     System.out.print("Ingrese su altura: ");
                     double altura = entrada.nextDouble();
-                    System.out.println("Ingrese su peso: ");
+                    System.out.print("Ingrese su peso: ");
                     double peso = entrada.nextDouble();
                     System.out.println("¡Se ha logrado registrar exitosamente!");
                     ingenieros.add(new Ingenieros(correo, usuario, contraseña, sdf.parse(fecha), nombre, sanguineo, sexo, altura, peso));
@@ -154,29 +155,29 @@ public class Lab4_DiegoVarela_MonicaCastillo {
                             System.out.println("1) Mono");
                             System.out.println("2) Gorila");
                             System.out.println("3) Helicoptero");
-                            System.out.println("4) Avion comercial");
-                            System.out.println("5) Nave espacial");
+                            System.out.println("4) Avion Comercial");
+                            System.out.println("5) Nave Espacial");
                             System.out.println("6) Cohete");
                             int opc = entrada.nextInt();
                             switch (opc) {
                                 case 1:
-                                    System.out.println("Ingrese el color de piel del mono:");
+                                    System.out.print("Ingrese el color de piel del mono: ");
                                     String color = entrada.next();
-                                    System.out.println("Ingrese la cantidad de comida que consume:");
+                                    System.out.print("Ingrese la cantidad de comida que consume: ");
                                     int consumo = entrada.nextInt();
-                                    System.out.println("Ingrese el planeta de salida:");
+                                    System.out.print("Ingrese el planeta de salida: ");
                                     String planeta = entrada.next();
-                                    System.out.println("Ingrese el lugar de nacimiento:");
+                                    System.out.print("Ingrese el lugar de nacimiento: ");
                                     String nacimiento = entrada.next();
                                     System.out.println("¡Bienvenido al Sistema de Registro!");
                                     System.out.print("Ingrese su nombre: ");
                                     String nomb = entrada.nextLine();
-                                    System.out.print("Ingrese su grupo sanguineo :");
+                                    System.out.print("Ingrese su grupo sanguineo:");
                                     String sanguineo2 = entrada.next();
                                     System.out.println("***Genero***");
                                     System.out.println("1. Femenino");
                                     System.out.println("2. Masculino");
-                                    System.out.println("Ingrese su genero: ");
+                                    System.out.print("Ingrese su genero: ");
                                     int opcio = entrada.nextInt();
                                     String sexo2 = "";
                                     switch (opcio) {
@@ -191,9 +192,13 @@ public class Lab4_DiegoVarela_MonicaCastillo {
                                     } // Fin Switch Generos
                                     System.out.print("Ingrese su altura: ");
                                     double altura2 = entrada.nextDouble();
-                                    System.out.println("Ingrese su peso: ");
+                                    System.out.print("Ingrese su peso: ");
                                     double peso2 = entrada.nextDouble();
-                                    primates.add(new Mono(color, 100, consumo, planeta, nacimiento, nomb, sanguineo2, sexo2, altura2, peso2));
+                                    try {
+                                        primates.add(new Mono(color, 100, consumo, planeta, nacimiento, nomb, sanguineo2, sexo2, altura2, peso2));
+                                    } catch (MiExcepcion ex) {
+                                        System.out.println(ex.getMessage());
+                                    } // Fin Try Catch
                                     break;
                                 case 2:
                                     System.out.println("Ingrese el iq del gorila");
@@ -201,7 +206,7 @@ public class Lab4_DiegoVarela_MonicaCastillo {
                                     if (iq < 130 && iq > 139) {
                                         System.out.println("Porfavor elija un IQ entre 130 y 139 porfavor");
                                         iq = entrada.nextInt();
-                                    }
+                                    } // Fin If
                                     System.out.println("Ingrese la cantidad de comida que consume:");
                                     int consumo2 = entrada.nextInt();
                                     System.out.println("Ingrese el planeta de salida:");
@@ -233,7 +238,11 @@ public class Lab4_DiegoVarela_MonicaCastillo {
                                     double altura3 = entrada.nextDouble();
                                     System.out.println("Ingrese su peso: ");
                                     double peso3 = entrada.nextDouble();
-                                    primates.add(new Gorila(iq, 100, consumo2, planeta2, nacimiento2, nomb3, sanguineo3, sexo3, altura3, peso3));
+                                    try {
+                                        primates.add(new Gorila(iq, 100, consumo2, planeta2, nacimiento2, nomb3, sanguineo3, sexo3, altura3, peso3));
+                                    } catch (MiExcepcion ex) {
+                                        System.out.println(ex.getMessage());
+                                    } // Fin Try Catch
                                     break;
                                 case 3:
                                     System.out.println("Ingrese el numero de helices.");
@@ -256,7 +265,9 @@ public class Lab4_DiegoVarela_MonicaCastillo {
                                         case 3:
                                             gasolina = "Diesel";
                                             break;
-                                    }
+                                        default:
+                                            System.out.println("¡Entrada No Valida!");
+                                    } // Fin Switch
                                     System.out.println("Ingrese de que pais sale el helicoptero:");
                                     String partida = entrada.next();
                                     System.out.println("Ingrese el pais de llegada del helicoptero");
@@ -265,7 +276,12 @@ public class Lab4_DiegoVarela_MonicaCastillo {
                                     int recorrido = entrada.nextInt();
                                     System.out.println("ingrese la altitud:");
                                     int altitud = entrada.nextInt();
-                                    Helicoptero e = new Helicoptero(numhelices, numpatas, gasolina, partida, llegada, 100, recorrido, altitud);
+                                    Helicoptero e = null;
+                                    try {
+                                        e = new Helicoptero(numhelices, numpatas, gasolina, partida, llegada, 100, recorrido, altitud);
+                                    } catch (MiExcepcion ex) {
+                                        System.out.println(ex.getMessage());
+                                    } // Fin Try Catch
                                     transportes.add(e);
                                     for (Primates pr : primates) {
                                         System.out.println("pr");
@@ -290,7 +306,9 @@ public class Lab4_DiegoVarela_MonicaCastillo {
                                         case 2:
                                             piloto = "No funciona";
                                             break;
-                                    }
+                                        default:
+                                            System.out.println("¡Entrada No Valida!");
+                                    } // Fin Switch
                                     System.out.println("Ingrese el tipo de gasolina :");
                                     System.out.println("1) Regular");
                                     System.out.println("2) Super");
@@ -307,7 +325,9 @@ public class Lab4_DiegoVarela_MonicaCastillo {
                                         case 3:
                                             gasolina2 = "Diesel";
                                             break;
-                                    }
+                                        default:
+                                            System.out.println("¡Entrada No Valida!");
+                                    } // Fin Switch
                                     System.out.println("Ingrese de que pais sale el avion:");
                                     String partida2 = entrada.next();
                                     System.out.println("Ingrese el pais de llegada del avion:");
@@ -316,11 +336,16 @@ public class Lab4_DiegoVarela_MonicaCastillo {
                                     int recorrido2 = entrada.nextInt();
                                     System.out.println("ingrese la altitud:");
                                     int altitud2 = entrada.nextInt();
-                                    Avion a = new Avion(numpasajeros, piloto, gasolina2, partida2, llegada2, 100, recorrido2, altitud2);
+                                    Avion a = null;
+                                    try {
+                                        a = new Avion(numpasajeros, piloto, gasolina2, partida2, llegada2, 100, recorrido2, altitud2);
+                                    } catch (MiExcepcion ex) {
+                                        System.out.println(ex.getMessage());
+                                    } // Fin Try Catch
                                     transportes.add(a);
                                     for (Primates pr : primates) {
                                         System.out.println("pr");
-                                    }
+                                    } // Fin For
                                     System.out.println("Que primate le desea asignar al helicoptero?");
                                     int nu = entrada.nextInt();
                                     primates.get(nu).setTransporte(a);
@@ -342,8 +367,9 @@ public class Lab4_DiegoVarela_MonicaCastillo {
                                         case 2:
                                             gasolina3 = "Propelente liquido";
                                             break;
-                                        
-                                    }
+                                        default:
+                                            System.out.println("¡Entrada No Valida!");
+                                    } // Fin Switch
                                     System.out.println("Ingres eel ´lanete de partida:");
                                     String partida3 = entrada.next();
                                     System.out.println("Ingres eel ´lanete de llegada:");
@@ -352,26 +378,89 @@ public class Lab4_DiegoVarela_MonicaCastillo {
                                     int distancia3 = entrada.nextInt();
                                     System.out.println("ingrese la altitud:");
                                     int altitud3 = entrada.nextInt();
-                                    Naveesp nav = new Naveesp(propulsores, gasolina3, partida3, llegada3, 100, distancia3, altitud3);
+                                    Naveesp nav = null;
+                                    try {
+                                        nav = new Naveesp(propulsores, gasolina3, partida3, llegada3, 100, distancia3, altitud3);
+                                    } catch (MiExcepcion ex) {
+                                        System.out.println(ex.getMessage());
+                                    } // Fin Try Catch
                                     transportes.add(nav);
                                     for (Primates pr : primates) {
                                         System.out.println("pr");
-                                    }
+                                    } // Fin For
                                     System.out.println("Que primate le desea asignar al helicoptero?");
                                     int num = entrada.nextInt();
                                     primates.get(num).setTransporte(nav);
                                     nav.getPrimates().add(primates.get(num));
                                     break;
-                            }
+                                default:
+                                    System.out.println("¡Entrada No Valida!");
+                            } // Fin Switch
                             break;
                         case 2:
                             break;
                         case 3:
+                            System.out.println("¿Que desea eliminar?");
+                            System.out.println("1) Mono");
+                            System.out.println("2) Gorila");
+                            System.out.println("3) Helicoptero");
+                            System.out.println("4) Avion Comercial");
+                            System.out.println("5) Nave Espacial");
+                            System.out.println("6) Cohete");
+                            System.out.print("Ingrese la opcion deseada: ");
+                            int opcion3 = entrada.nextInt();
+                            switch (opcion3) {
+                                case 1:
+                                    for (Object o : primates) {
+                                        if (o instanceof Mono) {
+                                            System.out.println(primates.indexOf(o) + " = " + o);
+                                        } // Fin If
+                                    } // Fin For
+                                    break;
+                                case 2:
+                                    for (Object o : primates) {
+                                        if (o instanceof Gorila) {
+                                            System.out.println(primates.indexOf(o) + " = " + o);
+                                        } // Fin If
+                                    } // Fin For
+                                    break;
+                                case 3:
+                                    for (Object o : transportes) {
+                                        if (o instanceof Helicoptero) {
+                                            System.out.println(transportes.indexOf(o) + " = " + o);
+                                        } // Fin If
+                                    } // Fin For
+                                    break;
+                                case 4:
+                                    for (Object o : transportes) {
+                                        if (o instanceof Helicoptero) {
+                                            System.out.println(transportes.indexOf(o) + " = " + o);
+                                        } // Fin If
+                                    } // Fin For
+                                    break;
+                                case 5:
+                                    for (Object o : transportes) {
+                                        if (o instanceof Helicoptero) {
+                                            System.out.println(transportes.indexOf(o) + " = " + o);
+                                        } // Fin If
+                                    } // Fin For
+                                    break;
+                                case 6:
+                                    for (Object o : transportes) {
+                                        if (o instanceof Helicoptero) {
+                                            System.out.println(transportes.indexOf(o) + " = " + o);
+                                        } // Fin If
+                                    } // Fin For
+                                    break;
+                                default:
+                                    System.out.println("¡Entrada No Valida!");
+                            } // Fin Switch Eliminar
                             break;
                         case 4:
                             break;
-                        
-                    }
+                        default:
+                            System.out.println("¡Entrada No Valida!");
+                    } // Fin Switch
                     break;
                 case 3:
                     resp = 'n';
