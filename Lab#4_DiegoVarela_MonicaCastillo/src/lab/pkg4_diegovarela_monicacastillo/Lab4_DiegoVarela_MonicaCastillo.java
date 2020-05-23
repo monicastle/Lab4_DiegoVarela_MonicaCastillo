@@ -26,7 +26,7 @@ public class Lab4_DiegoVarela_MonicaCastillo {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) throws ParseException, MiExcepcion {
         // TODO code application logic here
         char resp = 's';
         while (resp == 's' || resp == 'S') {
@@ -148,6 +148,7 @@ public class Lab4_DiegoVarela_MonicaCastillo {
                     System.out.println("2) Modificar");
                     System.out.println("3) Eliminar");
                     System.out.println("4) Viajar");
+                    System.out.println("5) Listar");
                     int op = entrada.nextInt();
                     switch (op) {
                         case 1:
@@ -927,6 +928,7 @@ public class Lab4_DiegoVarela_MonicaCastillo {
                             } // Fin Switch Eliminar
                             break;
                         case 4:
+
                             break;
                         default:
                             System.out.println("¡Entrada No Valida!");

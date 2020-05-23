@@ -13,9 +13,8 @@ import java.awt.Color;
  */
 public class Primates extends Seresv {
 
-    private Transporte transporte;
     private int comida;
-    private int alimentacion;
+    private int alimentacion = 100;
     private String planeta;
     private String lugar;
 
@@ -26,14 +25,6 @@ public class Primates extends Seresv {
         this.planeta = planeta;
         this.lugar = lugar;
     } // Fin Constructor Primates
-
-    public Transporte getTransporte() {
-        return transporte;
-    } // Fin Get Transporte
-
-    public void setTransporte(Transporte transporte) {
-        this.transporte = transporte;
-    } // Fin Set Transporte
 
     public int getComida() {
         return comida;
@@ -72,7 +63,7 @@ public class Primates extends Seresv {
 
     @Override
     public String toString() {
-        return "Primates{" + "transporte=" + transporte + ", planeta=" + planeta + '}';
+        return "Primates{" + "comida=" + comida + ", alimentacion=" + alimentacion + ", planeta=" + planeta + ", lugar=" + lugar + '}';
     } // Fin To String
 
 } // Fin Primates

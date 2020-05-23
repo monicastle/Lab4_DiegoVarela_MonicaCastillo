@@ -10,5 +10,6 @@ package lab.pkg4_diegovarela_monicacastillo;
  * @author diego
  */
 public interface Viajar {
-    
+
+    public void Viajar(Transporte transporte, int distancia);
 } // Fin Viajar

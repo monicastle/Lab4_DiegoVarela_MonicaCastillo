@@ -7,19 +7,23 @@ package lab.pkg4_diegovarela_monicacastillo;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author diego
  */
-public class Transporte {
+public class Transporte implements Viajar {
 
-    private int combustible;
+    Scanner entrada = new Scanner(System.in);
+    private int combustible = 100;
     private int distancia;
     private int altitud;
     private ArrayList<Primates> primates = new ArrayList();
 
-    public Transporte(int combustible, int distancia, int altitud) throws MiExcepcion{
+    public Transporte(int combustible, int distancia, int altitud) throws MiExcepcion {
         this.setCombustible(combustible);
         this.distancia = distancia;
         this.altitud = altitud;
@@ -62,7 +66,30 @@ public class Transporte {
 
     @Override
     public String toString() {
-        return "Transporte{" + "combustible=" + combustible + ", primates=" + primates + '}';
+        return "Transporte{" + "Combustible: " + combustible + ", Primates: " + primates + '}';
     } // Fin To String
 
+    @Override
+    public void Viajar(Transporte transporte, int distancia) {
+        int totalcomida;
+        int comb = transporte.getCombustible();
+        int combresta;
+        if (comb == 100) {
+            if (distancia > transporte.getDistancia()) {
+                System.out.println("¡No se puede viajar!");
+                System.out.println("No ajusta el combustible");
+            } else {
+                combresta = comb - ((distancia / transporte.getDistancia()) * comb);
+                try {
+                    transporte.setCombustible(combresta);
+                } catch (MiExcepcion ex) {
+                    System.out.println(ex.getMessage());;
+                } // Fin Try Catch 
+            } // Fin If
+        }
+        for (int i = 0; i < transporte.getPrimates().size(); i++) {
+            totalcomida = distancia * transporte.getPrimates().get(i).getAlimentacion();
+            transporte.getPrimates().get(i).setComida(transporte.getPrimates().get(i).getAlimentacion() - totalcomida);
+        } // Fin For
+    } // Fin Viajar
 } // Fin Transporte
