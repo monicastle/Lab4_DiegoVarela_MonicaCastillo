@@ -26,7 +26,7 @@ public class Lab4_DiegoVarela_MonicaCastillo {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) throws ParseException, MiExcepcion {
         // TODO code application logic here
         char resp = 's';
         while (resp == 's' || resp == 'S') {
@@ -148,6 +148,8 @@ public class Lab4_DiegoVarela_MonicaCastillo {
                     System.out.println("2) Modificar");
                     System.out.println("3) Eliminar");
                     System.out.println("4) Viajar");
+                    System.out.println("5) Agregar primate");
+                    System.out.println("6) Listar");
                     int op = entrada.nextInt();
                     switch (op) {
                         case 1:
@@ -886,6 +888,9 @@ public class Lab4_DiegoVarela_MonicaCastillo {
                                             System.out.println(primates.indexOf(o) + " = " + o);
                                         } // Fin If
                                     } // Fin For
+                                    System.out.print("Ingrese la posicion del mono que desea eliminar: ");
+                                    int pos = entrada.nextInt();
+                                    primates.remove(pos);
                                     break;
                                 case 2:
                                     for (Object o : primates) {
@@ -893,6 +898,9 @@ public class Lab4_DiegoVarela_MonicaCastillo {
                                             System.out.println(primates.indexOf(o) + " = " + o);
                                         } // Fin If
                                     } // Fin For
+                                    System.out.print("Ingrese la posicion del gorila que desea eliminar: ");
+                                    int pos2 = entrada.nextInt();
+                                    primates.remove(pos2);
                                     break;
                                 case 3:
                                     for (Object o : transportes) {
@@ -900,39 +908,67 @@ public class Lab4_DiegoVarela_MonicaCastillo {
                                             System.out.println(transportes.indexOf(o) + " = " + o);
                                         } // Fin If
                                     } // Fin For
+                                    System.out.print("Ingrese la posicion del helicoptero que desea eliminar: ");
+                                    int pos3 = entrada.nextInt();
+                                    transportes.remove(pos3);
                                     break;
                                 case 4:
                                     for (Object o : transportes) {
-                                        if (o instanceof Helicoptero) {
+                                        if (o instanceof Avion) {
                                             System.out.println(transportes.indexOf(o) + " = " + o);
                                         } // Fin If
                                     } // Fin For
+                                    System.out.print("Ingrese la posicion del avion que desea eliminar: ");
+                                    int pos4 = entrada.nextInt();
+                                    transportes.remove(pos4);
                                     break;
                                 case 5:
                                     for (Object o : transportes) {
-                                        if (o instanceof Helicoptero) {
+                                        if (o instanceof Naveesp) {
                                             System.out.println(transportes.indexOf(o) + " = " + o);
                                         } // Fin If
                                     } // Fin For
+                                    System.out.print("Ingrese la posicion de la nave espacial que desea eliminar: ");
+                                    int pos5 = entrada.nextInt();
+                                    transportes.remove(pos5);
                                     break;
                                 case 6:
                                     for (Object o : transportes) {
-                                        if (o instanceof Helicoptero) {
+                                        if (o instanceof Cohete) {
                                             System.out.println(transportes.indexOf(o) + " = " + o);
                                         } // Fin If
                                     } // Fin For
-                                    break;
-                                default:
-                                    System.out.println("¡Entrada No Valida!");
-                            } // Fin Switch Eliminar
-                            break;
+                                    System.out.print("Ingrese la posicion del cohete que desea eliminar: ");
+                                    int pos6 = entrada.nextInt();
+                                    transportes.remove(pos6);
+                            }
                         case 4:
                             break;
-                        default:
-                            System.out.println("¡Entrada No Valida!");
-                    } // Fin Switch
-                    break;
 
+                        case 5:
+                            for (Primates primate : primates) {
+                                System.out.println(primate);
+                            }
+                            System.out.println("Indique la posicion del primate que desea asignar:");
+                            int prim = entrada.nextInt();
+                            for (Transporte transporte : transportes) {
+                                System.out.println(transporte);
+                            }
+                            System.out.println("Indique a que transporte lo va a asignar:");
+                            int asign = entrada.nextInt();
+                            transportes.get(asign).getPrimates().add(primates.get(prim));
+                            System.out.println("Su primate ha sido asignado con exito");
+                            break;
+                        case 6:
+                            System.out.println("Transportes");
+                            for (Transporte transporte : transportes) {
+                                System.out.println(transporte+transporte.getPrimates().toString());
+                            }
+                            break;
+                        default:
+                            System.out.println("¡Entrada No Valida!"); // Fin Switch
+                            break;
+                    }
                 case 3:
                     resp = 'n';
                     break;
