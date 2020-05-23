@@ -982,7 +982,15 @@ public class Lab4_DiegoVarela_MonicaCastillo {
                                                         transportes.remove(pos6);
                                                 }
                                             case 4:
-                                                
+                                                System.out.print("Ingrese la distancia a viajar: ");
+                                                int distancia = entrada.nextInt();
+                                                for (Object o : transportes) {
+                                                    System.out.println(transportes.indexOf(o) + " = " + o);
+                                                } // Fin For
+                                                System.out.print("Seleccione un transporte para viajar: ");
+                                                int pos = entrada.nextInt();
+                                                Transporte e=null;
+                                                e.Viajar(((Transporte) transportes.get(pos)), distancia);
                                                 break;
                                             case 5:
                                                 for (Primates primate : primates) {
@@ -1020,8 +1028,6 @@ public class Lab4_DiegoVarela_MonicaCastillo {
             } // Fin Main
         }
     }
-
-    
 
     public static boolean Usernames(String username) {
         for (int i = 0; i < usernames.size(); i++) {
