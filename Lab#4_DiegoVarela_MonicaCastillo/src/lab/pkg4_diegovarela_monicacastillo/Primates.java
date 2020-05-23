@@ -63,7 +63,9 @@ public class Primates extends Seresv {
 
     @Override
     public String toString() {
-        return "Primates{"+ ", planeta=" + planeta + '}';
-    } // Fin To String
+        return "Primates{" + "planeta=" + planeta + ", lugar nacimiento=" + lugar + '}';
+    }
+
+    
 
 } // Fin Primates
