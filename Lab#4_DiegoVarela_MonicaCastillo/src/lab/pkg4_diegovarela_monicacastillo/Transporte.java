@@ -71,25 +71,35 @@ public class Transporte implements Viajar {
 
     @Override
     public void Viajar(Transporte transporte, int distancia) {
+        int distanciaresta = transporte.getDistancia();
+        boolean valid = true;
         int totalcomida;
         int comb = transporte.getCombustible();
         int combresta;
-        if (comb == 100) {
-            if (distancia > transporte.getDistancia()) {
-                System.out.println("¡No se puede viajar!");
-                System.out.println("No ajusta el combustible");
-            } else {
-                combresta = comb - ((distancia / transporte.getDistancia()) * comb);
-                try {
-                    transporte.setCombustible(combresta);
-                } catch (MiExcepcion ex) {
-                    System.out.println(ex.getMessage());;
-                } // Fin Try Catch 
-            } // Fin If
-        }
-        for (int i = 0; i < transporte.getPrimates().size(); i++) {
-            totalcomida = distancia * transporte.getPrimates().get(i).getAlimentacion();
-            transporte.getPrimates().get(i).setComida(transporte.getPrimates().get(i).getAlimentacion() - totalcomida);
-        } // Fin For
+        if (distancia > transporte.getDistancia()) {
+            System.out.println("¡No se puede viajar!");
+            System.out.println("No ajusta el combustible");
+            valid = false;
+        } else {
+            distanciaresta = distanciaresta - distancia;
+            transporte.setDistancia(distanciaresta);
+            combresta = comb - ((distancia / transporte.getDistancia()) * 100);
+            try {
+                transporte.setCombustible(combresta);
+            } catch (MiExcepcion ex) {
+                System.out.println(ex.getMessage());;
+            } // Fin Try Catch 
+        } // Fin If
+        if (valid) {
+            for (int i = 0; i < transporte.getPrimates().size(); i++) {
+                totalcomida = distancia * transporte.getPrimates().get(i).getAlimentacion();
+                if (100 > totalcomida) {
+                    transporte.getPrimates().get(i).setComida(transporte.getPrimates().get(i).getAlimentacion() - totalcomida);
+                } else {
+                    System.out.println("¡No se puede viajar!");
+                    System.out.println("No ajusta la comida para un mono");
+                } // Fin If
+            } // Fin For
+        } // Fin If
     } // Fin Viajar
 } // Fin Transporte
