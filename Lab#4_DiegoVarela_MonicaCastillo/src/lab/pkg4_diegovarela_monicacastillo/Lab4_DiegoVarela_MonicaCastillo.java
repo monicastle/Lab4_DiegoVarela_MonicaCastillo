@@ -141,6 +141,7 @@ public class Lab4_DiegoVarela_MonicaCastillo {
                         System.out.print("Ingrese su contraseña: ");
                         contra2 = entrada.next();
                     } // Fin While
+<<<<<<< HEAD
                     while (resp == 's' || resp == 's') {
                         System.out.println("¡Bienvenido " + user2 + "!");
                         System.out.println("¿Que desea hacer el dia de hoy?");
@@ -197,6 +198,68 @@ public class Lab4_DiegoVarela_MonicaCastillo {
                                         double altura2 = entrada.nextDouble();
                                         System.out.print("Ingrese su peso: ");
                                         double peso2 = entrada.nextDouble();
+=======
+                    System.out.println("¡Bienvenido " + user2 + "!");
+                    System.out.println("¿Que desea hacer el dia de hoy?");
+                    System.out.println("***MENU***");
+                    System.out.println("1) Agregar ");
+                    System.out.println("2) Modificar");
+                    System.out.println("3) Eliminar");
+                    System.out.println("4) Viajar");
+<<<<<<< HEAD
+                    System.out.println("5) Listar");
+=======
+                    System.out.println("5) Agregar primate");
+                    System.out.println("6) Listar");
+>>>>>>> d71ebb1cd007f1dcdbdc352184cc495689f4c12e
+                    int op = entrada.nextInt();
+                    switch (op) {
+                        case 1:
+                            System.out.println("¿Que desea agregar?");
+                            System.out.println("1) Mono");
+                            System.out.println("2) Gorila");
+                            System.out.println("3) Helicoptero");
+                            System.out.println("4) Avion Comercial");
+                            System.out.println("5) Nave Espacial");
+                            System.out.println("6) Cohete");
+                            int opc = entrada.nextInt();
+                            switch (opc) {
+                                case 1:
+                                    System.out.print("Ingrese el color de piel del mono: ");
+                                    String color = entrada.next();
+                                    System.out.print("Ingrese la cantidad de comida que consume: ");
+                                    int consumo = entrada.nextInt();
+                                    System.out.print("Ingrese el planeta de salida: ");
+                                    String planeta = entrada.next();
+                                    System.out.print("Ingrese el lugar de nacimiento: ");
+                                    String nacimiento = entrada.next();
+                                    System.out.println("¡Bienvenido al Sistema de Registro!");
+                                    System.out.print("Ingrese su nombre: ");
+                                    String nomb = entrada.nextLine();
+                                    System.out.print("Ingrese su grupo sanguineo:");
+                                    String sanguineo2 = entrada.next();
+                                    System.out.println("***Genero***");
+                                    System.out.println("1. Femenino");
+                                    System.out.println("2. Masculino");
+                                    System.out.print("Ingrese su genero: ");
+                                    int opcio = entrada.nextInt();
+                                    String sexo2 = "";
+                                    switch (opcio) {
+                                        case 1:
+                                            sexo = "Femenino";
+                                            break;
+                                        case 2:
+                                            sexo = "Masculino";
+                                            break;
+                                        default:
+                                            System.out.println("¡Entrada no valida!");
+                                    } // Fin Switch Generos
+                                    System.out.print("Ingrese su altura: ");
+                                    double altura2 = entrada.nextDouble();
+                                    System.out.print("Ingrese su peso: ");
+                                    double peso2 = entrada.nextDouble();
+                                    try {
+>>>>>>> 76b1e142cb62f119a83ba12498a1018be9caac17
                                         primates.add(new Mono(color, 100, consumo, planeta, nacimiento, nomb, sanguineo2, sexo2, altura2, peso2));
                                         break;
                                     case 2:
@@ -864,6 +927,7 @@ public class Lab4_DiegoVarela_MonicaCastillo {
 
                                 break;
 
+<<<<<<< HEAD
                             case 3:
                                 System.out.println("¿Que desea eliminar?");
                                 System.out.println("1) Mono");
@@ -937,6 +1001,82 @@ public class Lab4_DiegoVarela_MonicaCastillo {
                                 }
                             case 4:
                                 break;
+=======
+                        case 3:
+                            System.out.println("¿Que desea eliminar?");
+                            System.out.println("1) Mono");
+                            System.out.println("2) Gorila");
+                            System.out.println("3) Helicoptero");
+                            System.out.println("4) Avion Comercial");
+                            System.out.println("5) Nave Espacial");
+                            System.out.println("6) Cohete");
+                            System.out.print("Ingrese la opcion deseada: ");
+                            int opcion3 = entrada.nextInt();
+                            switch (opcion3) {
+                                case 1:
+                                    for (Object o : primates) {
+                                        if (o instanceof Mono) {
+                                            System.out.println(primates.indexOf(o) + " = " + o);
+                                        } // Fin If
+                                    } // Fin For
+                                    System.out.print("Ingrese la posicion del mono que desea eliminar: ");
+                                    int pos = entrada.nextInt();
+                                    primates.remove(pos);
+                                    break;
+                                case 2:
+                                    for (Object o : primates) {
+                                        if (o instanceof Gorila) {
+                                            System.out.println(primates.indexOf(o) + " = " + o);
+                                        } // Fin If
+                                    } // Fin For
+                                    System.out.print("Ingrese la posicion del gorila que desea eliminar: ");
+                                    int pos2 = entrada.nextInt();
+                                    primates.remove(pos2);
+                                    break;
+                                case 3:
+                                    for (Object o : transportes) {
+                                        if (o instanceof Helicoptero) {
+                                            System.out.println(transportes.indexOf(o) + " = " + o);
+                                        } // Fin If
+                                    } // Fin For
+                                    System.out.print("Ingrese la posicion del helicoptero que desea eliminar: ");
+                                    int pos3 = entrada.nextInt();
+                                    transportes.remove(pos3);
+                                    break;
+                                case 4:
+                                    for (Object o : transportes) {
+                                        if (o instanceof Avion) {
+                                            System.out.println(transportes.indexOf(o) + " = " + o);
+                                        } // Fin If
+                                    } // Fin For
+                                    System.out.print("Ingrese la posicion del avion que desea eliminar: ");
+                                    int pos4 = entrada.nextInt();
+                                    transportes.remove(pos4);
+                                    break;
+                                case 5:
+                                    for (Object o : transportes) {
+                                        if (o instanceof Naveesp) {
+                                            System.out.println(transportes.indexOf(o) + " = " + o);
+                                        } // Fin If
+                                    } // Fin For
+                                    System.out.print("Ingrese la posicion de la nave espacial que desea eliminar: ");
+                                    int pos5 = entrada.nextInt();
+                                    transportes.remove(pos5);
+                                    break;
+                                case 6:
+                                    for (Object o : transportes) {
+                                        if (o instanceof Cohete) {
+                                            System.out.println(transportes.indexOf(o) + " = " + o);
+                                        } // Fin If
+                                    } // Fin For
+                                    System.out.print("Ingrese la posicion del cohete que desea eliminar: ");
+                                    int pos6 = entrada.nextInt();
+                                    transportes.remove(pos6);
+                            }
+                        case 4:
+
+                            break;
+>>>>>>> 76b1e142cb62f119a83ba12498a1018be9caac17
 
                             case 5:
                                 for (Primates primate : primates) {

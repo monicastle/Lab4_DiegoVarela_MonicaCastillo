@@ -14,7 +14,7 @@ import java.awt.Color;
 public class Primates extends Seresv {
 
     private int comida;
-    private int alimentacion;
+    private int alimentacion = 100;
     private String planeta;
     private String lugar;
 
@@ -63,9 +63,18 @@ public class Primates extends Seresv {
 
     @Override
     public String toString() {
+<<<<<<< HEAD
         return "Primates{" + "planeta=" + planeta + ", lugar nacimiento=" + lugar + '}';
     }
 
     
+=======
+<<<<<<< HEAD
+        return "Primates{" + "comida=" + comida + ", alimentacion=" + alimentacion + ", planeta=" + planeta + ", lugar=" + lugar + '}';
+=======
+        return "Primates{"+ ", planeta=" + planeta + '}';
+>>>>>>> d71ebb1cd007f1dcdbdc352184cc495689f4c12e
+    } // Fin To String
+>>>>>>> 76b1e142cb62f119a83ba12498a1018be9caac17
 
 } // Fin Primates
